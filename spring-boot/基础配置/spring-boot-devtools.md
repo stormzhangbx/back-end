@@ -26,14 +26,11 @@ spring.thymeleaf.cache=false
 
 当classpath下的文件改变时程序会自动restart，/META-INF/maven, /META-INF/resources, /resources, /static, /public, 或 /templates虽然在classpath下，但其中文件变化不会触发自动restart。
 
-如果使用Eclipse，保存一个修改的文件会更新classpath，从而触发restart；如果使用IDEA，构建项目（Build Project）会更新classpath，从而触发restart。自动构建也就意味者IDEA需要消耗更多的资源去实时监测代码改动，性能也会受到影响，而且修改代码后有时候要很长时间才自动构建，有时候压根就不自动构建，还不如手动构建来的快。
-
-使用IDEA，不建议设置自动构建项目
+如果使用Eclipse，保存一个修改的文件会更新classpath，从而触发restart；如果使用IDEA，**构建项目（Build Project）** 会更新classpath，从而触发restart。自动构建也就意味者IDEA需要消耗更多的资源去实时监测代码改动，性能也会受到影响，而且修改代码后有时候要很长时间才自动构建，有时候压根就不自动构建，还不如手动构建来的快。所以使用IDEA，不建议设置自动构建项目。
 
 改动源文件后，再构建项目（快捷键`Ctrl + F9`，或直接点击IDEA上的Build Project按钮）。
 
-
-| 改动源文件        | 构建后target目录是否产生相应的改动 | 是否触发restart | 接口返回结果是否发生相应改动 |
+| 改动源文件类型     | 构建后target目录是否产生相应的改动 | 是否触发restart | 接口返回结果是否发生相应改动 |
 | :---------------- | :--------------------------------- | :-------------- | :--------------------------- |
 | 修改Java文件      | 是                                 | 是              | 是                           |
 | 新增/删除Java文件 | 是                                 | 是              | 是                           |
