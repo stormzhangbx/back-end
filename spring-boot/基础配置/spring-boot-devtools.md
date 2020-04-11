@@ -38,3 +38,5 @@ spring.thymeleaf.cache=false
 | 新增/删除静态文件 | 否                                 | 否              | 否                           |
 
 注意：target目录是否产生相应的改动，这跟是否使用spring-boot-devtools无关
+
+使用自动restart比重启项目使用的时间少。再学习Servlet时发现重启项目需要花很长时间，即使项目很小。

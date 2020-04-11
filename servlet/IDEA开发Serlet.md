@@ -1,8 +1,10 @@
 # IDEA开发Servlet
 
-[参考](https://www.cnblogs.com/liusong-funtime/p/9144275.html)
+[IDEA的Tomcat配置Web的项目创建以及Servlet简单运行。](https://www.cnblogs.com/liusong-funtime/p/9144275.html)
 
-[参考连接](https://blog.csdn.net/xn6517/article/details/49516299)，这篇文章很好的介绍了如何手动编写Servlet项目，并在Tomcat上部署。本笔记要讲的是如何用开发工具IDEA编写Servlet、通过IDEA调试预览。
+[Tomcat的安装与第一个servlet程序的部署](https://blog.csdn.net/xn6517/article/details/49516299)
+
+本笔记要讲的是如何用开发工具IDEA编写Servlet、通过IDEA调试预览。
 
 用IDEA只是编写、调试Servlet项目，实际上生产，还是要用Tomcat部署。↓
 
@@ -43,4 +45,10 @@
 ![12](./images/12.png)
 
 可以发现lib目录下并没有servlet-api.jar，因为tomcat安装目录下lib文件夹中已经存在了该jar包
+
+**注意**
+
+IDEA 提供了快速创建Servlet、Filter、Listener的方法。
+
+![13](./images/13.png)
 
