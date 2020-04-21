@@ -95,3 +95,32 @@ Man base64结果为：TWFu
 BC base64结果为：QkM=
 A base64结果为：QQ==
 ```
+
+```java
+import java.util.Base64;
+/**
+ * Base64算法基于64个基本字符，加密后的string中只包含这64个字符
+ */
+public class Base64Strategy {
+
+	public String encode(String src) {
+		byte[] encodeBytes = Base64.getEncoder().encode(src.getBytes());
+		return new String(encodeBytes);
+	}
+
+	public String decode(String src) {
+		byte[] decodeBytes = Base64.getDecoder().decode(src.getBytes());
+		return new String(decodeBytes);
+	}
+
+	public static void main(String[] args) {
+		 Base64Strategy bs=new Base64Strategy();
+
+         String encrypt=bs.encode("admin");
+         //密文长度跟加密源字符串有关
+         System.out.printf("加密后[%d]：%s%n", encrypt.length(),encrypt);
+         System.out.println("解密后："+bs.decode(encrypt));
+	}
+
+}
+```

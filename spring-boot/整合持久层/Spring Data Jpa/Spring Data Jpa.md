@@ -46,8 +46,8 @@ spring.jpa.show-sql=true
 
 ## 2 Spring Data JPA 提供的核心接口
 
-![01](./images/01.webp)
-![02](./images/02.png)
+![01](../images/01.webp)
+![02](../images/02.png)
 
 接口|作用
 :--|:--
