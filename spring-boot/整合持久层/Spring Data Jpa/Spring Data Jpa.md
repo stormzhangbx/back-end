@@ -65,11 +65,11 @@ spring.jpa.show-sql=true
 
 ### 2.2 CrudRepository
 
-![03](./images/03.png)
+![03](../images/03.png)
 
 ### 2.3 PagingAndSortingRepository
 
-![04](./images/04.png)
+![04](../images/04.png)
 
 finAll(Sort)只能排序，findAll(Pageable)既可以分页也可以排序，这两个方法查出的是表中所有数据，无法通过条件查询。
 
@@ -113,7 +113,7 @@ public class UsersRepositoryTest {
 
     @Test
     public void testQuery() {
-        // 这里可以使用findById，但是不能使用findByNane，如果想使用findByNane，则必须在接口UsersRepository位置1处定义该方法（只需定义即可，实现就交给Spring Date Jpa）
+        // 这里可以使用findById，但是不能使用findByName，如果想使用findByName，则必须在接口UsersRepository位置1处定义该方法（只需定义即可，实现就交给Spring Date Jpa）
         UsersRepository.findById(2);
     }
 ```
@@ -122,7 +122,7 @@ public class UsersRepositoryTest {
 
 该接口一般和JpaRepository接口搭配使用，即一个接口同时继承这两个接口
 
-![05](./images/05.png)
+![05](../images/05.png)
 
 Specification用于封装查询条件
 
