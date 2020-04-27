@@ -2,7 +2,7 @@
 
 [Hibernate 和 JPA 注解](https：//liuyanzhao.com/7914.html)
 
-[JPA基础（三）之注解](https：//blog.csdn.net/BIGPLANS/article/details/103251317)
+[JPA基础（三）之注解](https://blog.csdn.net/bigplans/article/details/103251317)
 
 ## 1 @Entity
 
