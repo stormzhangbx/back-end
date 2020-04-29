@@ -6,7 +6,7 @@
 
 ```xml
 <properties>
-    <fastjson.version>1.2.54</fastjson.version>
+    <fastjson.version>1.2.61</fastjson.version>
 </properties>
 <dependencies>
     <dependency>
