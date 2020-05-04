@@ -32,7 +32,7 @@ public class Dept {
 Dept dept = new Dept(1L, "developer");
 Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2020-10-25 08:50:00");
 User user = new User("Jack", "123456", 20, date, dept);
-String userStr = JSON.toJSONString(user, SerializerFeature.WriteClassName);
+String userStr = JSON.toJSONString(user, SerializerFeature.WriteClassName); //序列化时，使用WriteClassName的特性
 System.out.println(userStr); //{"@type":"com.company.fastjson.User","name":"Jack","age":20,"birthday":"2020-10-25 08:50:00","dept":{"id":1,"name":"developer"}}
 ```
 

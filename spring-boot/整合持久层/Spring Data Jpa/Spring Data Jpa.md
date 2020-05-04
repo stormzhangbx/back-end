@@ -61,17 +61,28 @@ spring.jpa.show-sql=true
 - 1、2、3在同一包spring-data-commons下
 - 4、5在同一包spring-data-jpa下，偏应用些，在实际工作中用的多些
 
-### 2.1 Repository
+### 2.1 Repository 接口
 
-### 2.2 CrudRepository
+### 2.2 CrudRepository 接口
 
 ![03](../images/03.png)
+
+例如
+
+```java
+public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
+}
+```
+
+在 `UserRepository` 接口中可以不定义任何内容，就可以直接使用 `findById`等方法，该功能通过继承 `CrudRepository` 提供。
+
+JPA框架知道user表中一定有id列，所有可以直接使用 `findById` 等方法。但是框架不知道user表还有username列，所有不能直接使用 `findByUsername` 方法，如果想使用，只需要在`UserRepository` 接口中定义 `findByUsername` 方法即可，框架会自动提供实现，这就是方法名称命名查询，该功能通过继承 `Repository` 提供。
 
 ### 2.3 PagingAndSortingRepository
 
 ![04](../images/04.png)
 
-finAll(Sort)只能排序，findAll(Pageable)既可以分页也可以排序，这两个方法查出的是表中所有数据，无法通过条件查询。
+finAll(Sort)只能排序，findAll(Pageable)既可以分页也可以排序，这两个方法查出的是表中所有数据，无法通过条件进行查询。
 
 下面是包含查询条件的分页和排序
 
@@ -84,12 +95,12 @@ Page<User> findByUsernameLike(String username, Pageable pageable);
 @Query("select u from User u where u.username like %?1%")
 List<User> findByUsernameAndSort(String username, Sort sort);
 
-// 方法必须先在继承JpaRepository的接口中自定义了，才能使用
 // 基于方法名称命名查询方式
 Page<User> findByUsernameLike(String username, Pageable pageable);
 
 List<User> findByUsernameAndSort(String username, Sort sort);
 ```
+
 **即上述方法必须先在继承JpaRepository的接口中自定义了，才能使用**
 
 ```java
@@ -118,7 +129,7 @@ public class UsersRepositoryTest {
     }
 ```
 
-### 2.4 JpaSpecificationExectuor
+### 2.4 JpaSpecificationExectuor 接口
 
 该接口一般和JpaRepository接口搭配使用，即一个接口同时继承这两个接口
 

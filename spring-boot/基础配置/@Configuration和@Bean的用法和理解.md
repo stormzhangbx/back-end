@@ -50,3 +50,34 @@ private JdbcTemplate jdbcTemplate;
 注意：一个SpingBoot项目中可能有多个配置类，不同配置类中各个`@Bean`修饰的方法名称不能相同（除非`@Bean`中定义了name属性），否则将报如下错误
 
 ![01](./images/01.png)
+
+## @Bean修饰的方法参数的注入方式
+
+方法参数默认注入方式为Autowired，即先根据类型匹配，若有多个在根据名称进行匹配。
+
+```java
+@Configuration
+@PropertySource("classpath:db.properties")
+public class SpringConfiguration {
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+
+    @Bean(name = "dataSource")
+    public DataSource dataSource(@Value("${jdbc.driverClass}") String driverClassName,
+        @Value("${jdbc.jdbcUrl}") String url, @Value("${jdbc.user}") String username,
+        @Value("${jdbc.password}") String password) {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(driverClassName);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        return dataSource;
+    }
+    @Bean(name = "jdbcTemplate")
+    public JdbcTemplate jdbcTemplate(@Qualifier(value = "dataSource") DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
+}
+```

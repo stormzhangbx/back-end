@@ -127,7 +127,7 @@
 
 ### 1.15 @RestController
 
-@RestController是在Spring 4.0开始引入的，这是一个特定的控制器注解。此注解相当于@Controller和@ResponseBody的快捷方式。当使用此注解时，不需要再在方法上使用@ResponseBody注解。下面是使用此注解的示例代码：
+@RestController是在Spring 4.0开始引入的，这是一个特定的控制器注解。此注解相当于@Controller + @ResponseBody的快捷方式。当使用此注解时，不需要再在方法上使用@ResponseBody注解。下面是使用此注解的示例代码：
 
 ![注解](./images/annotation18.webp)
 

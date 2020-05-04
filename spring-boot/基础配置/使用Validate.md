@@ -2,10 +2,21 @@
 
 [【SpringBoot】 在SpringBoot中使用Hibernate Validate](https://blog.csdn.net/xuhuanfeng232/article/details/83894822)
 [使用spring validation完成数据后端校验](https://blog.csdn.net/u013815546/article/details/77248003)
+[@Validated和@Valid区别](https://blog.csdn.net/qq_27680317/article/details/79970590)
 
 设置当校验出现第一个不满足情况时，后面的属性就不再校验（默认校验策略是依次校验，并且将不通过的结果保存，最后再统一抛出异常信息）
 
 ```java
+package com.company.springbootvalidation.config;
+
+import org.hibernate.validator.HibernateValidator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
 @Configuration
 public class ValidatorConfig {
 
@@ -49,12 +60,13 @@ public class User {
 public class UserController {
 
     @PostMapping
-    public User addUser(@Valid @RequestBody User user) {
+    public User addUser(@Validated @RequestBody User user) {
         // 仅测试验证过程，省略其他的逻辑
         return user;
     }
 }
 ```
+默认情况下，SpringBoot配置了默认异常处理器DefaultHandlerExceptionResolver，该处理器仅仅是将异常信息打印出来，我们可以使用全局异常捕获来重新处理验证异常
 
 ```java
 @RestControllerAdvice
