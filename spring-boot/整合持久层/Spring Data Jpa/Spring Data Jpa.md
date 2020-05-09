@@ -29,6 +29,7 @@
 ```
 
 修改配置，application.properties
+
 ```properties
 #数据库的基本信息
 spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
