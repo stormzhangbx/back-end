@@ -33,7 +33,7 @@
 ```properties
 #数据库的基本信息
 spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC
+spring.datasource.url=jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
 spring.datasource.username=root
 spring.datasource.password=123456
 
@@ -44,6 +44,9 @@ spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
+
+配置信息解释：
+
 
 ## 2 Spring Data JPA 提供的核心接口
 
