@@ -5,7 +5,7 @@ mysql8.0和之前版本的区别，首先驱动换了，不是com.mysql.jdbc.Dri
 ```java
 // 加载驱动类
 // static final String URL = "jdbc:mysql://localhost:3306/test?useSSL=false";
-String URL = "jdbc:mysql://localhost:3306/test?useSSL=false&serverTimezone=UTC";
+String URL = "jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false";
 // 建立连接
 // String path = "com.mysql.jdbc.Driver";
 String path = "com.mysql.cj.jdbc.Driver";
