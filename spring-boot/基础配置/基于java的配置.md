@@ -11,7 +11,7 @@
 
 @Configuration 可理解为用 spring 的时候xml里面的`<beans>`标签，@Bean 可理解为用 spring 的时候xml里面的`<bean>`标签
 
-**@Component、@Repository、@Service、@Controller是将自定义的、新的class实例化后放入bean容器中管理，而@Configuration和@Bean是将实例化已有的class后放入bean容器中管理**
+**@Component、@Repository、@Service、@Controller是将自定义的、新的class实例化后放入bean容器中管理，而@Configuration和@Bean是实例化已有的class后放入bean容器中管理**
 
 因此在集成其他框架，如集成shiro权限框架，用@Configuration和@Bean来配置Shiro
 
@@ -56,9 +56,11 @@ public class JdbcConfign {
 private JdbcTemplate jdbcTemplate;
 ```
 
+需要注意的是，AnnotationConfigApplicationContext 在解析配置类时，会将配置类自身注册为一个 Bean，因为 @Configuration 注解本身定义时被 @Component 标注了。
+
 ### 1.2 @Bean修饰的方法参数的注入方式
 
-方法参数默认注入方式为Autowired，即先根据类型匹配，若有多个在根据名称进行匹配。
+方法参数默认注入方式为Autowired，即先根据类型匹配，若有多个再根据名称进行匹配。
 
 ```java
 @Configuration

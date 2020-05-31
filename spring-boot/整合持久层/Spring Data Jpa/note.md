@@ -17,7 +17,7 @@
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
-    <scope>8.0.18</scope>
+    <scope>runtime</scope>
 </dependency>
 
 <!--数据库连接池druid-->

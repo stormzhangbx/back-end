@@ -180,14 +180,15 @@ CustomerService cust = (CustomerService)context.getBean("AAA");
 
 ## 4 自动组件扫描注释类型
 
-在Spring2.5中，有4种类型的组件自动扫描注释类型
+在Spring2.5中，有5种类型的组件自动扫描注释类型
 
 - @Component – 指示自动扫描组件。
 - @Repository – 表示在持久层DAO组件。
 - @Service – 表示在业务层服务组件。
 - @Controller – 表示在表示层控制器组件。
+- @Configuration - 配置类，同时本身被注册为一个bean。
 
-查看@Repository、@Service、@Controller的源码可以发现，它们都被@Component注解。上述注解的功能都是一样的，只是语义不同。为了便于阅读，不同的环境应该使用不同的注解，所以上述代码可以改为
+查看@Repository、@Service、@Controller、@Configuration的源码可以发现，它们都被@Component注解。上述注解的功能都是一样的，只是语义不同。为了便于阅读，不同的环境应该使用不同的注解，所以上述代码可以改为
 
 DAO 层
 

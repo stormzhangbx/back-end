@@ -1,5 +1,9 @@
 # criteria
 
+[https://www.objectdb.com/java/jpa/query](https://www.objectdb.com/java/jpa/query)
+
+Criteria 和 JPQL 是类似的，只不过前者通过面向对象的方式来进行sql操作。
+
 JPQL
 
 ```java
